@@ -1,4 +1,5 @@
 import { KEY_DEEP, KEY, KEY_EXCLUDE, SKELETON_TYPE } from "./enum";
+import renderText from "./renderText";
 const { IGNORE, TEXT, IMAGE, BLOCK, BORDER, LIST, BUTTON, BACKGROUND_IMAGE, INPUT} = SKELETON_TYPE;
 
 export default function skeleton(root, jq, options = null) {
@@ -50,10 +51,61 @@ function replaceTextNode(root, $) {
 function checkNodeVisible($node) {
     return $node.css('display') !== 'none';
 }
-function getNodeSkeletonType($node) {
-    
+function isInput(node) {
+    if(node.tagName.toUpperCase() === 'INPUT') {
+        let type = node.getAttribute('type');
+        return ['text', 'password', 'search'].includes(type);
+    }
+    return false;
 }
-function preorder(root) {
+function hasBorder(node, $) {
+    // console.log($(node).css('border-width'));
+    let style = $(node).css('border-width');
+    return style && style !== '0px';
+}
+function hasBackgroundImage(node, $) {
+    let reg = /url/;
+    let background = $(node).css('background');
+    return reg.test(background);
+}
+function isImage(node) {
+    return node.tagName.toUpperCase() === 'IMG';
+}
+function isList(node) {
+    return node.children.length > 0 && /ul|ol/.test(node.tagName);
+}
+function isButton(node) {
+    return node.nodeType == 1 && (node.tagName.toUpperCase() === 'BUTTON' || (node.tagName.toUpperCase() === 'A' && node.getAttribute('role') === 'button'));
+}
+function isText(node) {
+    return node.childNodes && node.childNodes[0] && node.childNodes[0].nodeType === 3 && /\S/.test(node.childNodes[0].textContent);
+}
+function getNodeSkeletonType($node, $) {
+    let node = $node[0];
+    if(!node) return;
+    if(isInput(node)) {
+        return INPUT;
+    }
+    if(hasBorder(node, $)) {
+        return BORDER;
+    }
+    if(hasBackgroundImage(node, $)) {
+        return BACKGROUND_IMAGE;
+    }
+    if(isImage(node)) {
+        return IMAGE;
+    }
+    if(isList(node)) {
+        return LIST;
+    }
+    if(isButton(node)) {
+        return BUTTON;
+    }
+    if(isText(node)) {
+        return TEXT;
+    }
+}
+function preorder(root, $) {
     replaceTextNode(root);
 
     // 排除不可见元素
@@ -61,5 +113,12 @@ function preorder(root) {
         return;
     }
 
-    let type = root.attr(KEY) || getNodeSkeletonType(root);
+    let type = root.attr(KEY) || getNodeSkeletonType(root, $);
+    let excludeType = root.attr(KEY_EXCLUDE);
+    if(!excludeType || excludeType !== type) {
+        let handlers = {
+            [TEXT]: renderText,
+            // [IMAGE]: renderImage,
+        }
+    }
 }
