@@ -1,6 +1,7 @@
 export default function renderText($dom) {
-    let fontSize = $dom.css('font-size');
-    let lineHeight = $dom.css('line-height');
+    let fontSize = $dom.css('font-size') ? $dom.css('font-size') : '16';
+    let lineHeight = $dom.css('line-height') ? $dom.css('font-size') : 'normal';
+    // console.log(fontSize, lineHeight);
     if(lineHeight == 'normal') {
         lineHeight = fontSize * 1.2;
     }else {
