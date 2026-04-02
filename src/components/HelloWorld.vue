@@ -1,6 +1,8 @@
 <template>
   <div v-if="loading">__SKELETON_HelloWorld_CONTENT__</div>
   <div v-else class="hello" style="border-width: 1px;">
+    <img alt="Vue logo" src="../assets/logo.png">
+    这是一个text文本
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -45,7 +47,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = false;
-    }, 5000);
+    }, 6000);
   },
 }
 </script>

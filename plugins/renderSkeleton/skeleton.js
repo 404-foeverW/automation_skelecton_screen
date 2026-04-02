@@ -8,15 +8,15 @@ import renderButton from "./renderButton";
 import renderBackgroundImage from "./renderBackgroundImage";
 import renderInput from "./renderInput";
 import ignore from "./ignore";
-const { IGNORE, TEXT, IMAGE, BLOCK, BORDER, LIST, BUTTON, BACKGROUND_IMAGE, INPUT} = SKELETON_TYPE;
+const { IGNORE, TEXT, IMAGE, BLOCK, BORDER, LIST, BUTTON, BACKGROUND_IMAGE, INPUT, PLAINTEXT} = SKELETON_TYPE;
 
 export default function skeleton(root, jq, options = null) {
     // console.log(root);
     root.addClass('sk');
     presets(root, options);
+    // replaceTextNode(root, jq);
     preorder(root, jq);
     return root.html();
-    console.log(root.html());
 }
 function presets(root, options) {
     if(options === null) return;
@@ -38,24 +38,28 @@ function presets(root, options) {
 function replaceTextNode(root, $) {
     let type = root.attr(KEY);
     if(type === TEXT) return;
-    
-    let $texts = root.contents().filter(function(item) {
-        return item.nodeType === 3;
+    let childrens = root.contents();
+    // console.log(childrens);
+    let $texts = childrens.filter(function() {
+        let node = this[0] || this;
+        if(node.type === 'text') {
+            return true;
+        }
+        return false;
     })
+    // console.log($texts);
     $texts.each(function(index, el) {
         let node = this;
         let $node = $(this);
-        console.log(node);
-        if(!$node.innerText.trim()) {
+        // console.log($node.text());
+        if(!$node.text().trim()) {
             return;
         }
-        let span = document.createElement('span');
-        let $span = $(span);
+        let $span = $(`<span>${$node.text()}</span>`);
         $span.attr(KEY, TEXT);
         $span.insertAfter($node);
         $node.remove();
-
-        span.appendChild($node);
+        $span.append($node);
     })
 }
 function checkNodeVisible($node) {
@@ -92,6 +96,7 @@ function isText(node) {
 }
 function getNodeSkeletonType($node, $) {
     let node = $node[0];
+    // console.log(node);
     if(!node) return;
     if(isInput(node, $)) {
         return INPUT;
@@ -116,7 +121,7 @@ function getNodeSkeletonType($node, $) {
     }
 }
 function preorder(root, $) {
-    replaceTextNode(root);
+    replaceTextNode(root, $);
 
     // 排除不可见元素
     if(!checkNodeVisible(root)) {
@@ -143,7 +148,7 @@ function preorder(root, $) {
             return;
         }
     }
-    root.children().each(function() {
+    root.children().each(function(index, element) {
         const $this = $(this);
         preorder($this, $);
     })

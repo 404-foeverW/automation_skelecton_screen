@@ -39,7 +39,6 @@ export default function renderSkeleton() {
                 } catch (error) {
                     console.log('写入文件失败', error);
                 }
-                console.log(1);
                 globalThis[`_${fileName}`] = htmlText;
                 // console.log($);
                 // const { document } = parseHTML(templateContent);

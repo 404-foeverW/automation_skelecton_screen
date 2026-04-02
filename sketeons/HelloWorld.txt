@@ -1,29 +1,31 @@
 
-    <h1 class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">{{ msg }}</h1>
-    <p class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">
-      For a guide and recipes on how to configure / customize this project,<br>
+    <img alt="Vue logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="width: 100px; height: 100px; background: #eee;"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">
+    这是一个text文本
+    </span><h1><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ msg }}</span></h1>
+    <p><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">
+      For a guide and recipes on how to configure / customize this project,</span><br><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">
       check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-cli documentation</a>.
-    </p>
-    <h3 class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Installed CLI Plugins</h3>
+      </span><a href="https://cli.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-cli documentation</span></a><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">.
+    </span></p>
+    <h3><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Installed CLI Plugins</span></h3>
     <ul class="sk-list">
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">eslint</a></li>
-    <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">babel</a></li></ul>
-    <h3 class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Essential Links</h3>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">babel</span></a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">eslint</span></a></li>
+    <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">babel</span></a></li></ul>
+    <h3><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Essential Links</span></h3>
     <ul class="sk-list">
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">News</a></li>
-    <li><a href="https://vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Core Docs</a></li><li><a href="https://vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Core Docs</a></li><li><a href="https://vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Core Docs</a></li><li><a href="https://vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Core Docs</a></li></ul>
-    <h3 class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">Ecosystem</h3>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Core Docs</span></a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Forum</span></a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Community Chat</span></a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Twitter</span></a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">News</span></a></li>
+    <li><a href="https://vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Core Docs</span></a></li><li><a href="https://vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Core Docs</span></a></li><li><a href="https://vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Core Docs</span></a></li><li><a href="https://vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Core Docs</span></a></li></ul>
+    <h3><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">Ecosystem</span></h3>
     <ul class="sk-list">
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">awesome-vue</a></li>
-    <li><a href="https://router.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-router</a></li><li><a href="https://router.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-router</a></li><li><a href="https://router.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-router</a></li><li><a href="https://router.vuejs.org" target="_blank" rel="noopener" class="sk-tect" style="--fp:8.33;--sp:91.67;--lh:19.2px">vue-router</a></li></ul>
+      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-router</span></a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vuex</span></a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-devtools</span></a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-loader</span></a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">awesome-vue</span></a></li>
+    <li><a href="https://router.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-router</span></a></li><li><a href="https://router.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-router</span></a></li><li><a href="https://router.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-router</span></a></li><li><a href="https://router.vuejs.org" target="_blank" rel="noopener"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">vue-router</span></a></li></ul>
   

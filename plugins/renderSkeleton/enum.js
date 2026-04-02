@@ -10,7 +10,8 @@ const SKELETON_TYPE = {
     LIST: 'list',
     BUTTON: 'button',
     BACKGROUND_IMAGE: 'background-image',
-    INPUT: 'input'
+    INPUT: 'input',
+    PLAINTEXT: 'plaintext',
 }
 module.exports = {
     KEY,
