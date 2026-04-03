@@ -1,0 +1,68 @@
+<div style="undefined" class="container sk">
+        <!-- 左侧栏：个人信息 -->
+        <aside>
+            <div class="card profile-section">
+                <!-- 头像 -->
+                <img alt="Avatar" class="avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="width: 100px; height: 100px; background: #eee;">
+                <h1 class="name"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ profile.name }}</span></h1>
+                <p class="job-title"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ profile.jobTitle }}</span></p>
+                
+                <!-- 联系方式 -->
+                <ul class="contact-list sk-list">
+                    <li v-for="(item, index) in profile.contact" :key="index">
+                        <span style="margin-right: 8px;"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ item.icon }}</span></span><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">
+                        {{ item.text }}
+                    </span></li>
+                </ul>
+            </div>
+
+            <!-- 技能栈 -->
+            <div class="card">
+                <h2 class="section-title"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">技能栈</span></h2>
+                <div class="skill-tags">
+                    <span v-for="skill in skills" :key="skill" class="tag">
+                        <a class="sk-text" style="cursor: default;" href="javascript:void(0)">{{ skill }}</a>
+                    </span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧栏：详细信息 -->
+        <main>
+            <!-- 个人简介 -->
+            <div class="card">
+                <h2 class="section-title"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">个人简介</span></h2>
+                <p style="color: var(--text-secondary);"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ profile.summary }}</span></p>
+            </div>
+
+            <!-- 工作经历 -->
+            <div class="card">
+                <h2 class="section-title"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">工作经历</span></h2>
+                <div class="experience-item" v-for="(job, index) in experience" :key="index">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ job.role }}</span></div>
+                            <div class="exp-company"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ job.company }}</span></div>
+                        </div>
+                        <div class="exp-date"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ job.date }}</span></div>
+                    </div>
+                    <p class="exp-desc"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ job.description }}</span></p>
+                </div>
+            </div>
+
+            <!-- 项目展示 -->
+            <div class="card">
+                <h2 class="section-title"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">项目展示</span></h2>
+                <div class="experience-item" v-for="(project, index) in projects" :key="index">
+                    <div class="exp-header">
+                        <div class="exp-role"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ project.name }}</span></div>
+                        <a class="sk-text" style="cursor: default;" href="javascript:void(0)">查看项目 →</a>
+                    </div>
+                    <p class="exp-desc"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ project.description }}</span></p>
+                    <div class="skill-tags" style="margin-top: 10px;">
+                        <span v-for="tag in project.tech" :key="tag" class="tag" style="font-size: 0.75rem;"><span skeleton-type="text" class="sk-text" style="--fp:8.33px;--sp:91.67px;--lh:19.2px">{{ tag }}</span></span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>

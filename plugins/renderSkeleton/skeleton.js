@@ -5,10 +5,11 @@ import renderBlock from "./renderBlock";
 import renderBorder from "./renderBorder";
 import renderList from "./renderList";
 import renderButton from "./renderButton";
+import renderAtag from "./renderAtag";
 import renderBackgroundImage from "./renderBackgroundImage";
 import renderInput from "./renderInput";
 import ignore from "./ignore";
-const { IGNORE, TEXT, IMAGE, BLOCK, BORDER, LIST, BUTTON, BACKGROUND_IMAGE, INPUT, PLAINTEXT} = SKELETON_TYPE;
+const { IGNORE, TEXT, IMAGE, BLOCK, BORDER, LIST, BUTTON, ATAG, BACKGROUND_IMAGE, INPUT, PLAINTEXT} = SKELETON_TYPE;
 
 export default function skeleton(root, jq, options = null) {
     // console.log(root);
@@ -16,7 +17,11 @@ export default function skeleton(root, jq, options = null) {
     presets(root, options);
     // replaceTextNode(root, jq);
     preorder(root, jq);
-    return root.html();
+    let htmlContent = root.html();
+    let tagName = root.prop('tagName').toLowerCase();
+    let rootStyle = root.attr(':style') ? `:style="${root.attr(':style')}"` : `style="${root.attr('style')}"`;
+    htmlContent = `<${tagName} ${rootStyle} class="${root.attr('class')}">${htmlContent}</${tagName}>`
+    return htmlContent;
 }
 function presets(root, options) {
     if(options === null) return;
@@ -80,6 +85,11 @@ function hasBorder(node, $) {
 function hasBackgroundImage(node, $) {
     let reg = /url/;
     let background = $(node).css('background');
+    let styleBind = $(node).attr(':style') ? $(node).attr(':style') : undefined;
+    if(styleBind) {
+        let regex = /['"]background['"]\s*:\s*['"]url\(\)['"]/;
+        return regex.test(styleBind);
+    }
     return reg.test(background);
 }
 function isImage(node) {
@@ -90,6 +100,9 @@ function isList(node) {
 }
 function isButton(node, $) {
     return node.nodeType == 1 && (node.tagName.toUpperCase() === 'BUTTON' || (node.tagName.toUpperCase() === 'A' && $(node).attr('role') === 'button'));
+}
+function isAtag(node, $) {
+    return node.nodeType == 1 && node.tagName.toUpperCase() === 'A';
 }
 function isText(node) {
     return node.childNodes && node.childNodes[0] && node.childNodes[0].nodeType === 3 && /\S/.test(node.childNodes[0].textContent);
@@ -105,6 +118,7 @@ function getNodeSkeletonType($node, $) {
         return BORDER;
     }
     if(hasBackgroundImage(node, $)) {
+        console.log(node);
         return BACKGROUND_IMAGE;
     }
     if(isImage(node)) {
@@ -116,8 +130,11 @@ function getNodeSkeletonType($node, $) {
     if(isButton(node, $)) {
         return BUTTON;
     }
+    if(isAtag(node, $)) {
+        return ATAG;
+    }
     if(isText(node)) {
-        return TEXT;
+        // return TEXT;
     }
 }
 function preorder(root, $) {
@@ -138,12 +155,13 @@ function preorder(root, $) {
             [BORDER]: renderBorder,
             [LIST]: renderList,
             [BUTTON]: renderButton,
+            [ATAG]: renderAtag,
             [BACKGROUND_IMAGE]: renderBackgroundImage,
             [INPUT]: renderInput,
             [IGNORE]: ignore
         }
         let handler = handlers[type];
-        handler && handler(root);
+        handler && handler(root, $);
         if([BLOCK].includes(type)) {
             return;
         }

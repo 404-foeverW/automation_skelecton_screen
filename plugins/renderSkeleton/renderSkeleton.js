@@ -1,10 +1,12 @@
 import { parseHTML } from "linkedom";
 import { parse } from "@vue/compiler-sfc";
 import skeleton from "./skeleton";
+import { loadEnv } from 'vite';
 import fs from 'fs';
 import path from 'path';
 
 const cheerio = require('cheerio');
+const skeletonPage = JSON.parse(loadEnv('', process.cwd()).VITE_SKELETON_PAGES);
 
 
 export default function renderSkeleton() {
@@ -12,7 +14,13 @@ export default function renderSkeleton() {
         name: "renderSkeleton",
         enforce: 'post',
         async load(id) {
-            if(id.indexOf('HelloWorld.vue') !== -1) {
+            // let currentIndex;
+            let currentIndex = skeletonPage.findIndex((item, index) => {
+                return id.indexOf(item.name+'.vue') !== -1;
+            })
+            if(currentIndex !== -1) {
+            // if(id.indexOf('UserInfo.vue') !== -1) {
+                console.log(skeletonPage[0]);
                 const fssync = await import('fs/promises');
                 const code = await fssync.readFile(id, 'utf-8');
                 // console.log(code);
@@ -20,8 +28,9 @@ export default function renderSkeleton() {
                 // console.log("descirptor", parse(code));
                 const templateContent = descriptor.template?.content || '';
                 const $ = cheerio.load(templateContent);
-                let htmlText = skeleton($('.hello'), $);
-                console.log(process.cwd());
+                let htmlText = skeleton($('.'+skeletonPage[currentIndex].className), $);
+                // console.log(htmlText);
+                // console.log(process.cwd());
                 const outputDir = path.resolve(process.cwd(), 'sketeons');
                 if (!fs.existsSync(outputDir)) {
                     try {
@@ -40,9 +49,6 @@ export default function renderSkeleton() {
                     console.log('写入文件失败', error);
                 }
                 globalThis[`_${fileName}`] = htmlText;
-                // console.log($);
-                // const { document } = parseHTML(templateContent);
-                // console.log(document);
             }
             return null;
         }

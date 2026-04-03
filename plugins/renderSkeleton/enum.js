@@ -12,6 +12,7 @@ const SKELETON_TYPE = {
     BACKGROUND_IMAGE: 'background-image',
     INPUT: 'input',
     PLAINTEXT: 'plaintext',
+    ATAG: 'a'
 }
 module.exports = {
     KEY,
