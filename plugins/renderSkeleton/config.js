@@ -1,6 +1,6 @@
 export default {
     code: '',
-    ignore: false,
+    ignore: '',
     selector: {},
     htmlConfig: {
         rootFontSize: 16,
