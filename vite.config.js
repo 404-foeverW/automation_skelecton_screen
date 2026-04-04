@@ -42,6 +42,7 @@ export default defineConfig({
       }
     }
   },
+  base: './',
   esbuild: {
     pure: ['eval']
   }

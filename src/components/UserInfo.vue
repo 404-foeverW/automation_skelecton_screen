@@ -122,9 +122,9 @@ export default {
         }
     },
     mounted() {
-        // setTimeout(() => {
-        // this.loading = false;
-        // }, 5000);
+        setTimeout(() => {
+        this.loading = false;
+        }, 5000);
     },
 }
 </script>

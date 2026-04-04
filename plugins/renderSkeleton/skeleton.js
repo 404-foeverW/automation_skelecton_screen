@@ -16,7 +16,7 @@ export default function skeleton(root, jq, options = null) {
     root.addClass('sk');
     presets(root, options);
     // replaceTextNode(root, jq);
-    preorder(root, jq);
+    preorder(root, jq, options);
     let htmlContent = root.html();
     let tagName = root.prop('tagName').toLowerCase();
     let rootStyle = root.attr(':style') ? `:style="${root.attr(':style')}"` : `style="${root.attr('style')}"`;
@@ -60,7 +60,9 @@ function replaceTextNode(root, $) {
         if(!$node.text().trim()) {
             return;
         }
+        // console.log(root.css('font-size'));
         let $span = $(`<span>${$node.text()}</span>`);
+        $span.css('font-size', root.css('font-size'));
         $span.attr(KEY, TEXT);
         $span.insertAfter($node);
         $node.remove();
@@ -137,7 +139,7 @@ function getNodeSkeletonType($node, $) {
         // return TEXT;
     }
 }
-function preorder(root, $) {
+function preorder(root, $, options) {
     replaceTextNode(root, $);
 
     // 排除不可见元素
@@ -161,13 +163,13 @@ function preorder(root, $) {
             [IGNORE]: ignore
         }
         let handler = handlers[type];
-        handler && handler(root, $);
+        handler && handler(root, $, options);
         if([BLOCK].includes(type)) {
             return;
         }
     }
     root.children().each(function(index, element) {
         const $this = $(this);
-        preorder($this, $);
+        preorder($this, $, options);
     })
 }

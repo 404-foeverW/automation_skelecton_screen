@@ -8,17 +8,50 @@
     --fp: 0%;
     --sp: 0%;
     --lh: 0;
-
-    display: inline-block;
+    --animation-duration: 1.5s;
+    
+    position: relative;
+    /* display: inline-block; */
+    display: inline-flex; 
     background-origin: content-box !important;
     background-clip: content-box !important;
     background-color: transparent !important;
     background-repeat: repeat-y !important;
     /*color: var(--c) !important;*/
-    background-image: linear-gradient(transparent var(--fp), var(--c) 0, var(--c) var(--sp), transparent 0);
-    background-size: 100% var(--lh);
+    /* background-image: linear-gradient(transparent var(--fp), var(--c) 0, var(--c) var(--sp), transparent 0); */
+    background-image: linear-gradient(transparent var(--fp), var(--c) var(--fp), var(--c) var(--sp), var(--c) var(--lh), transparent var(--lh));
+    /* background-size: 100% var(--lh); */
+    background-size: 100% 100%;
     color: transparent !important;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none; /* Chrome/Safari/Edge */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    overflow: hidden;
+}
+.sk-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* 创建一个从左到右的渐变光带 */
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%; /* 宽度设大一点以便移动 */
+    transform: translateX(-100%);
+    animation: sk-shimmer var(--animation-duration) infinite;
+}
 
+@keyframes sk-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .sk-text > * {

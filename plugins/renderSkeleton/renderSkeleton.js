@@ -4,12 +4,13 @@ import skeleton from "./skeleton";
 import { loadEnv } from 'vite';
 import fs from 'fs';
 import path from 'path';
+import config from "./config";
 
 const cheerio = require('cheerio');
 const skeletonPage = JSON.parse(loadEnv('', process.cwd()).VITE_SKELETON_PAGES);
 
 
-export default function renderSkeleton() {
+export default function renderSkeleton(options = {}) {
     return {
         name: "renderSkeleton",
         enforce: 'post',
@@ -28,7 +29,8 @@ export default function renderSkeleton() {
                 // console.log("descirptor", parse(code));
                 const templateContent = descriptor.template?.content || '';
                 const $ = cheerio.load(templateContent);
-                let htmlText = skeleton($('.'+skeletonPage[currentIndex].className), $);
+                let params = Object.assign({}, config, options);
+                let htmlText = skeleton($('.'+skeletonPage[currentIndex].className), $, params);
                 // console.log(htmlText);
                 // console.log(process.cwd());
                 const outputDir = path.resolve(process.cwd(), 'sketeons');
