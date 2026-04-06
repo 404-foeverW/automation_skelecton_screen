@@ -3,10 +3,11 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path' // 路径解析（需node环境）
 import renderSkeleton from './plugins/renderSkeleton/renderSkeleton'
 import SkeletonPlaceholder from './plugins/SkeletonPlaceholder/SkeletonPlaceholder'
+import viteCallbackPlugin from './plugins/viteCallback'
 
 export default defineConfig({
   // 1. 插件
-  plugins: [vue(), renderSkeleton(), SkeletonPlaceholder()],
+  plugins: [vue(), renderSkeleton(), SkeletonPlaceholder(), viteCallbackPlugin()],
 
   // 2. 路径别名
   resolve: {

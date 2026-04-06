@@ -43,4 +43,8 @@ plugins: [vue(), renderSkeleton(), SkeletonPlaceholder()],
     }
 }
 ```
+## 参考文章
+[vite插件实现骨架屏自动化](https://juejin.cn/post/7152406737100734495?searchId=20260328165221192115175E9BD0723349)
+[使用Chrome扩展程序生成网页骨架屏](https://www.shymean.com/article/%E4%BD%BF%E7%94%A8Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E7%BD%91%E9%A1%B5%E9%AA%A8%E6%9E%B6%E5%B1%8F)
+[cheerio](https://github.com/cheeriojs/cheerio/wiki/Chinese-README)
 
